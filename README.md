@@ -19,9 +19,8 @@ We hope to make tracking fitness easier for users.
 
 
 ## Technologies Used
-- Tech 1 - version 1.0
-- Tech 2 - version 2.0
-- Tech 3 - version 3.0
+-AI Agent
+REST APIs
 
 
 ## Features
