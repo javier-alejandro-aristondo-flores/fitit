@@ -24,10 +24,9 @@ REST APIs
 
 
 ## Features
-List the ready features here:
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+AI Agent: AI agent will help users create and generate plans
+Muscle Tracker: Tracks users muscle use after doing workout
+Routine creator: Creates routines with selection of workouts
 
 
 ## Screenshots
