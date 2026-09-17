@@ -7,7 +7,7 @@
 
 ## General Information
 * **Who we're working with:** Evan Martinez, Trey Patillo, Javier Flores, Idraak Ahmed
-* **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progressâ€”estimating muscle gained and fat lost over time using AIâ€”and dynamically adjusts projections if workouts are missed.
+* **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progress—estimating muscle gained and fat lost over time using AI—and dynamically adjusts projections if workouts are missed.
 * **Target Audience:** Individuals seeking an intelligent, automated assistant to construct structured workout plans, optimize their nutrition, and visualize long-term fitness growth.
 * **Impact & Vision:** We aim to remove the guesswork from personal health by making fitness and nutrition tracking seamless, accountable, and motivating through dynamic AI feedback.
 
@@ -17,6 +17,26 @@
 * **[Python](https://www.python.org/)** - Core programming language for application backend logic and AI orchestration.
 * **[Docker](https://www.docker.com/)** - Containerization platform to ensure consistent development and deployment environments.
 * **[Git](https://git-scm.com/)** - Distributed version control system for source code management.
+
+### Frontend & Mobile Development
+* **[React Native](https://reactnative.dev/):** Cross-platform mobile framework for building native user interfaces on iOS and Android.
+* **[Expo](https://expo.dev/):** Toolchain and platform surrounding React Native for rapid mobile application development and testing.
+
+### Backend & API
+* **[Node.js](https://nodejs.org/):** Open-source, cross-platform JavaScript runtime environment for server-side code.
+* **[Express.js](https://expressjs.com/):** Web application framework for building REST API endpoints (`/api/auth`, `/api/routines`, `/api/logs`).
+* **[JSON Web Tokens (JWT)](https://jwt.io/):** Compact, URL-safe token standard used for secure user session authentication.
+* **[bcrypt](https://www.npmjs.com/package/bcrypt):** Password hashing library used to encrypt user security credentials before saving to the database.
+
+### Database & Storage
+* **[PostgreSQL](https://www.postgresql.org/):** Open-source relational database management system for storing user profiles, workout plans, and workout logs (`workout_logs` and `set_logs`).
+
+### AI Integration
+* **[OpenAI API](https://platform.openai.com/docs/overview):** API service accessing GPT models to generate personalized 7-day workout plans and process user performance adjustments.
+
+### Project Management & Version Control
+* **[Bitbucket](https://bitbucket.org/):** Git-based code hosting and team collaboration platform.
+* **[Jira](https://www.atlassian.com/software/jira):** Agile project management software for planning Sprints 1–3, managing User Stories, and tracking task backlogs.
 
 
 ## Features (Sprint 1)
