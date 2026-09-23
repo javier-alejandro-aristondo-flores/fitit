@@ -7,7 +7,7 @@
 
 ## General Information
 * **Who we're working with:** Evan Martinez, Trey Patillo, Javier Flores, Idraak Ahmed
-* **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progress—estimating muscle gained and fat lost over time using AI—and dynamically adjusts projections if workouts are missed.
+* **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progressâ€”estimating muscle gained and fat lost over time using AIâ€”and dynamically adjusts projections if workouts are missed.
 * **Target Audience:** Individuals seeking an intelligent, automated assistant to construct structured workout plans, optimize their nutrition, and visualize long-term fitness growth.
 * **Impact & Vision:** We aim to remove the guesswork from personal health by making fitness and nutrition tracking seamless, accountable, and motivating through dynamic AI feedback.
 
@@ -36,7 +36,7 @@
 
 ### Project Management & Version Control
 * **[Bitbucket](https://bitbucket.org/):** Git-based code hosting and team collaboration platform.
-* **[Jira](https://www.atlassian.com/software/jira):** Agile project management software for planning Sprints 1–3, managing User Stories, and tracking task backlogs.
+* **[Jira](https://www.atlassian.com/software/jira):** Agile project management software for planning Sprints 1â€“3, managing User Stories, and tracking task backlogs.
 
 
 ## Features (Sprint 1)
@@ -60,8 +60,50 @@
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
+These steps are written for Windows.
 
-Proceed to describe how to install / setup one's local environment / get started with the project.
+### Requirements
+| Tool | Version | What it's for |
+|---|---|---|
+| [Git](https://git-scm.com/downloads) | any recent | Version control |
+| [Node.js](https://nodejs.org/) | 24 or newer (LTS) | Runs the backend and the frontend dev server |
+| [PostgreSQL](https://www.postgresql.org/download/windows/) | 18 | The database |
+| pgAdmin 4 | comes with PostgreSQL | Visual tool for viewing the database |
+
+Project dependencies (Express, React, etc.) will be listed in each folder's `package.json` and installed with `npm install`.
+
+### 1. Install Node.js
+Download the LTS installer from [nodejs.org](https://nodejs.org/) and run it with the default options.
+
+### 2. Install PostgreSQL and pgAdmin
+1. Download the installer from [postgresql.org/download/windows](https://www.postgresql.org/download/windows/) (choose the newest Windows x86-64 version).
+2. Run it and keep these components checked: **PostgreSQL Server**, **pgAdmin 4**, **Command Line Tools**. Stack Builder is not needed.
+3. Set a password for the `postgres` superuser and **write it down** â€” the backend needs it later.
+4. Keep the default port, `5432`.
+
+### 3. Add PostgreSQL to your PATH
+The installer does not do this, so the terminal can't find `psql` until you do. Run this in PowerShell (change `18` if you installed a different version):
+
+```
+[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path","User") + ";C:\Program Files\PostgreSQL\18\bin", "User")
+```
+
+Then close and reopen VS Code (or your terminal).
+
+### 4. Check that everything works
+```
+node -v
+psql --version
+```
+Both commands should print a version number.
+
+### 5. Get the code
+```
+git clone https://bitbucket.org/cs3398-bith0-f26/fitit-ai-fitness-planner.git
+cd fitit-ai-fitness-planner
+```
+
+### Running the app
+Coming soon â€” instructions for starting the backend and frontend will be added once those folders exist.
 
 
