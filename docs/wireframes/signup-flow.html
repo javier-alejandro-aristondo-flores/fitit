@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FitIT Signup Wireframes</title>
+<style>
+  /* Low-fidelity wireframe: grayscale only, boxes and labels. */
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px 16px; background: #f2f2f2; color: #222;
+         font-family: "Segoe UI", Arial, sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  .subtitle { margin: 0 0 32px; color: #666; }
+  .screen { max-width: 960px; margin: 0 auto 48px; }
+  .label { font-size: 13px; font-weight: 600; text-transform: uppercase;
+           letter-spacing: .05em; color: #666; margin-bottom: 8px; }
+  .browser { background: #fff; border: 2px solid #999; border-radius: 6px; overflow: hidden; }
+  .bar { background: #ddd; padding: 6px 10px; font-size: 12px; color: #555;
+         border-bottom: 2px solid #999; }
+  .nav { display: flex; justify-content: space-between; align-items: center;
+         padding: 12px 20px; border-bottom: 1px dashed #aaa; }
+  .logo { font-weight: 700; border: 2px solid #444; padding: 4px 10px; }
+  .content { padding: 40px 20px; min-height: 360px; display: flex;
+             flex-direction: column; align-items: center; justify-content: center; }
+  .card { width: 100%; max-width: 380px; border: 2px solid #444; padding: 24px; }
+  .card.wide { max-width: 560px; }
+  .card h2 { margin: 0 0 16px; font-size: 20px; }
+  .field { margin-bottom: 14px; }
+  .field span { display: block; font-size: 13px; margin-bottom: 4px; }
+  .input { height: 36px; border: 1px solid #888; background: #fafafa; }
+  .btn { display: inline-block; padding: 10px 18px; border: 2px solid #222;
+         background: #444; color: #fff; font-weight: 600; text-align: center; }
+  .btn.full { display: block; width: 100%; }
+  .btn.ghost { background: #fff; color: #222; }
+  .link { text-decoration: underline; color: #333; font-size: 14px; }
+  .muted { color: #777; font-size: 14px; }
+  .center { text-align: center; }
+  .hero-img { width: 100%; max-width: 480px; height: 160px; border: 2px dashed #999;
+              display: flex; align-items: center; justify-content: center;
+              color: #999; margin: 20px 0; }
+  .options { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; }
+  .option { border: 1px solid #888; padding: 12px; text-align: center; font-size: 14px; }
+  .option.selected { border: 3px solid #222; font-weight: 600; }
+  .progress { display: flex; gap: 6px; margin-bottom: 16px; }
+  .progress div { flex: 1; height: 6px; background: #ccc; }
+  .progress div.on { background: #444; }
+  .row { display: flex; gap: 12px; }
+  .row > * { flex: 1; }
+  .spinner { width: 48px; height: 48px; border: 4px dashed #666; border-radius: 50%; margin: 0 auto 16px; }
+  .note { max-width: 960px; margin: 8px auto 0; font-size: 13px; color: #555;
+          border-left: 3px solid #999; padding-left: 10px; }
+</style>
+</head>
+<body>
+
+<div class="screen">
+  <h1>FitIT — Signup Flow Wireframes</h1>
+  <p class="subtitle">SCRUM-13 · Web app · Low fidelity (layout only, no final colors or styling)</p>
+</div>
+
+<!-- 1. Landing -->
+<div class="screen">
+  <div class="label">Screen 1 — Landing page</div>
+  <div class="browser">
+    <div class="bar">fitit.app/</div>
+    <div class="nav"><span class="logo">FitIT</span><span><span class="link">Log in</span> &nbsp; <span class="btn">Sign up</span></span></div>
+    <div class="content center">
+      <h2 style="margin:0;font-size:28px">Your AI fitness coach</h2>
+      <p class="muted">Personalized workouts, meal plans, and progress tracking.</p>
+      <div class="hero-img">[ hero image ]</div>
+      <span class="btn">Get started — it's free</span>
+    </div>
+  </div>
+  <p class="note">"Sign up" and "Get started" both go to Screen 2. "Log in" goes to Screen 3.</p>
+</div>
+
+<!-- 2. Create account -->
+<div class="screen">
+  <div class="label">Screen 2 — Create account</div>
+  <div class="browser">
+    <div class="bar">fitit.app/signup</div>
+    <div class="nav"><span class="logo">FitIT</span><span class="link">Log in</span></div>
+    <div class="content">
+      <div class="card">
+        <h2>Create your account</h2>
+        <div class="field"><span>Full name</span><div class="input"></div></div>
+        <div class="field"><span>Email</span><div class="input"></div></div>
+        <div class="field"><span>Password</span><div class="input"></div></div>
+        <div class="field"><span>Confirm password</span><div class="input"></div></div>
+        <span class="btn full">Create account</span>
+        <p class="muted center">Already have an account? <span class="link">Log in</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="note">Validation: email format, password at least 8 characters, passwords must match. Error text shows under the field. Sends POST /api/auth/signup and goes to Screen 4 when it succeeds.</p>
+</div>
+
+<!-- 3. Log in -->
+<div class="screen">
+  <div class="label">Screen 3 — Log in</div>
+  <div class="browser">
+    <div class="bar">fitit.app/login</div>
+    <div class="nav"><span class="logo">FitIT</span><span class="link">Sign up</span></div>
+    <div class="content">
+      <div class="card">
+        <h2>Welcome back</h2>
+        <div class="field"><span>Email</span><div class="input"></div></div>
+        <div class="field"><span>Password</span><div class="input"></div></div>
+        <p style="margin:0 0 14px;text-align:right"><span class="link">Forgot password?</span></p>
+        <span class="btn full">Log in</span>
+        <p class="muted center">New here? <span class="link">Create an account</span></p>
+      </div>
+    </div>
+  </div>
+  <p class="note">Sends POST /api/auth/login. Wrong credentials show "Invalid email or password." Success goes to the dashboard, or to Screen 4 if onboarding isn't finished.</p>
+</div>
+
+<!-- 4. Onboarding: goal -->
+<div class="screen">
+  <div class="label">Screen 4 — Onboarding step 1 of 3: Goal</div>
+  <div class="browser">
+    <div class="bar">fitit.app/onboarding/goal</div>
+    <div class="nav"><span class="logo">FitIT</span><span class="muted">Step 1 of 3</span></div>
+    <div class="content">
+      <div class="card wide">
+        <div class="progress"><div class="on"></div><div></div><div></div></div>
+        <h2>What's your main goal?</h2>
+        <div class="options">
+          <div class="option selected">Lose fat</div>
+          <div class="option">Build muscle</div>
+          <div class="option">Get stronger</div>
+          <div class="option">General fitness</div>
+        </div>
+        <p></p>
+        <div class="row"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. Onboarding: experience + body stats -->
+<div class="screen">
+  <div class="label">Screen 5 — Onboarding step 2 of 3: About you</div>
+  <div class="browser">
+    <div class="bar">fitit.app/onboarding/about</div>
+    <div class="nav"><span class="logo">FitIT</span><span class="muted">Step 2 of 3</span></div>
+    <div class="content">
+      <div class="card wide">
+        <div class="progress"><div class="on"></div><div class="on"></div><div></div></div>
+        <h2>Tell us about you</h2>
+        <div class="field"><span>Experience level</span>
+          <div class="options">
+            <div class="option">Beginner</div>
+            <div class="option selected">Intermediate</div>
+            <div class="option">Advanced</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="field"><span>Age</span><div class="input"></div></div>
+          <div class="field"><span>Height</span><div class="input"></div></div>
+          <div class="field"><span>Weight</span><div class="input"></div></div>
+        </div>
+        <div class="field"><span>Workout days per week</span>
+          <div class="options">
+            <div class="option">2</div><div class="option">3</div>
+            <div class="option selected">4</div><div class="option">5+</div>
+          </div>
+        </div>
+        <div class="row"><span class="btn ghost">Back</span><span class="btn">Next</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Age, height, and weight feed the progress modeler and the calorie targets.</p>
+</div>
+
+<!-- 6. Onboarding: equipment -->
+<div class="screen">
+  <div class="label">Screen 6 — Onboarding step 3 of 3: Equipment</div>
+  <div class="browser">
+    <div class="bar">fitit.app/onboarding/equipment</div>
+    <div class="nav"><span class="logo">FitIT</span><span class="muted">Step 3 of 3</span></div>
+    <div class="content">
+      <div class="card wide">
+        <div class="progress"><div class="on"></div><div class="on"></div><div class="on"></div></div>
+        <h2>What equipment do you have?</h2>
+        <p class="muted">Select all that apply.</p>
+        <div class="options">
+          <div class="option selected">Full gym</div>
+          <div class="option">Dumbbells</div>
+          <div class="option">Barbell</div>
+          <div class="option">Resistance bands</div>
+          <div class="option">Pull-up bar</div>
+          <div class="option">Bodyweight only</div>
+        </div>
+        <p></p>
+        <div class="row"><span class="btn ghost">Back</span><span class="btn">Generate my plan</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Saves the onboarding answers to the user's profile, then asks the AI to generate a 7-day routine.</p>
+</div>
+
+<!-- 7. Generating -->
+<div class="screen">
+  <div class="label">Screen 7 — Generating plan</div>
+  <div class="browser">
+    <div class="bar">fitit.app/onboarding/generating</div>
+    <div class="nav"><span class="logo">FitIT</span><span></span></div>
+    <div class="content center">
+      <div class="spinner"></div>
+      <h2 style="margin:0">Building your personalized plan…</h2>
+      <p class="muted">This usually takes a few seconds.</p>
+    </div>
+  </div>
+  <p class="note">Goes to the dashboard (a separate ticket) when generation finishes. On error, shows a message and a "Try again" button.</p>
+</div>
+
+</body>
+</html>
