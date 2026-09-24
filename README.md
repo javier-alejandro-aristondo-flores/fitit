@@ -60,50 +60,66 @@
 
 
 ## Setup
-These steps are written for Windows.
+The database runs in Docker, so you don't need to install PostgreSQL.
 
 ### Requirements
 | Tool | Version | What it's for |
 |---|---|---|
 | [Git](https://git-scm.com/downloads) | any recent | Version control |
 | [Node.js](https://nodejs.org/) | 24 or newer (LTS) | Runs the backend and the frontend dev server |
-| [PostgreSQL](https://www.postgresql.org/download/windows/) | 18 | The database |
-| pgAdmin 4 | comes with PostgreSQL | Visual tool for viewing the database |
+| [Docker Desktop](https://www.docker.com/products/docker-desktop/) | any recent | Runs PostgreSQL and pgAdmin in containers |
 
 Project dependencies (Express, React, etc.) will be listed in each folder's `package.json` and installed with `npm install`.
 
-### 1. Install Node.js
-Download the LTS installer from [nodejs.org](https://nodejs.org/) and run it with the default options.
+### 1. Install Node.js and Docker Desktop
+- Node.js: download the LTS installer from [nodejs.org](https://nodejs.org/) and run it with the default options.
+- Docker Desktop: install it from [docker.com](https://www.docker.com/products/docker-desktop/) and **start it** (the whale icon should appear in your taskbar).
 
-### 2. Install PostgreSQL and pgAdmin
-1. Download the installer from [postgresql.org/download/windows](https://www.postgresql.org/download/windows/) (choose the newest Windows x86-64 version).
-2. Run it and keep these components checked: **PostgreSQL Server**, **pgAdmin 4**, **Command Line Tools**. Stack Builder is not needed.
-3. Set a password for the `postgres` superuser and **write it down** — the backend needs it later.
-4. Keep the default port, `5432`.
-
-### 3. Add PostgreSQL to your PATH
-The installer does not do this, so the terminal can't find `psql` until you do. Run this in PowerShell (change `18` if you installed a different version):
-
-```
-[Environment]::SetEnvironmentVariable("Path", [Environment]::GetEnvironmentVariable("Path","User") + ";C:\Program Files\PostgreSQL\18\bin", "User")
-```
-
-Then close and reopen VS Code (or your terminal).
-
-### 4. Check that everything works
+Check both work:
 ```
 node -v
-psql --version
+docker --version
 ```
-Both commands should print a version number.
 
-### 5. Get the code
+### 2. Get the code
 ```
 git clone https://bitbucket.org/cs3398-bith0-f26/fitit-ai-fitness-planner.git
 cd fitit-ai-fitness-planner
 ```
 
+### 3. Create your `.env` file
+Copy the template, then open `.env` and change `POSTGRES_PASSWORD` to a password of your choice:
+```
+copy .env.example .env
+```
+`.env` is ignored by Git, so your password is never committed. Everyone picks their own; it only protects the database on your computer.
+
+### 4. Start the database
+```
+docker compose up -d
+```
+The first run downloads the images, which takes a minute. Check that both containers are running:
+```
+docker compose ps
+```
+You should see `fitit-db` and `fitit-pgadmin` with status `Up`.
+
+> **Port 5432 already in use?** You have PostgreSQL installed directly on your computer. Stop it: open **Services** (Windows key → "Services"), find **postgresql-x64-…**, click **Stop**, and set **Startup type** to **Manual**.
+
+### 5. Open the database in pgAdmin
+1. Go to http://localhost:5050 and log in with `PGADMIN_EMAIL` / `PGADMIN_PASSWORD` from your `.env` (defaults: `admin@example.com` / `admin`).
+2. Right-click **Servers** → **Register** → **Server…**
+3. **General** tab: Name = `FitIT`
+4. **Connection** tab: Host = `db`, Port = `5432`, Username = `postgres`, Password = your `POSTGRES_PASSWORD`. Tick **Save password**.
+5. Click **Save**. You should see the `fitit` database under **FitIT → Databases**.
+
+### Everyday commands
+| Command | What it does |
+|---|---|
+| `docker compose up -d` | Start the database and pgAdmin in the background |
+| `docker compose ps` | Show what's running |
+| `docker compose down` | Stop everything (your data is kept) |
+| `docker compose down -v` | Stop everything **and delete all database data** |
+
 ### Running the app
 Coming soon — instructions for starting the backend and frontend will be added once those folders exist.
-
-
