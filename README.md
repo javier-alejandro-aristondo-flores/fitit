@@ -6,10 +6,7 @@
 ---
 
 ## General Information
-* **Who we're working with:** Evan Martinez, Trey Patillo, Javier Flores, Idraak Ahmed
-<<<<<<< HEAD
-* **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progress—estimating muscle gained and fat lost over time using AI—and dynamically adjusts projections if workouts are missed.
-=======
+* **Who we're working with:** Evan Martinez, Trey Patillo, Javier Flores, Idrak Ahmed
 * **What we're creating:** An interactive fitness and nutrition tracking application powered by an AI agent. The app generates custom workout routines, crafts meal and diet plans, and acts as an active coach. It continuously calculates physical progress�estimating muscle gained and fat lost over time using AI�and dynamically adjusts projections if workouts are missed.
 * **Target Audience:** Individuals seeking an intelligent, automated assistant to construct structured workout plans, optimize their nutrition, and visualize long-term fitness growth.
 * **Impact & Vision:** We aim to remove the guesswork from personal health by making fitness and nutrition tracking seamless, accountable, and motivating through dynamic AI feedback.
