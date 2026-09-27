@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FitIT Dashboard Wireframes</title>
+<style>
+  /* Low-fidelity wireframe: grayscale only, boxes and labels. Matches signup-flow.html. */
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px 16px; background: #f2f2f2; color: #222;
+         font-family: "Segoe UI", Arial, sans-serif; }
+  h1 { margin: 0 0 4px; font-size: 22px; }
+  .subtitle { margin: 0 0 32px; color: #666; }
+  .screen { max-width: 1100px; margin: 0 auto 48px; }
+  .label { font-size: 13px; font-weight: 600; text-transform: uppercase;
+           letter-spacing: .05em; color: #666; margin-bottom: 8px; }
+  .browser { background: #fff; border: 2px solid #999; border-radius: 6px; overflow: hidden; }
+  .bar { background: #ddd; padding: 6px 10px; font-size: 12px; color: #555;
+         border-bottom: 2px solid #999; }
+  .nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+         padding: 12px 20px; border-bottom: 1px dashed #aaa; }
+  .nav .links { display: flex; gap: 16px; font-size: 14px; }
+  .nav .links .active { font-weight: 700; border-bottom: 2px solid #222; }
+  .logo { font-weight: 700; border: 2px solid #444; padding: 4px 10px; }
+  .avatar { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #444; }
+  .content { padding: 28px 20px; }
+  .greet h2 { margin: 0; font-size: 26px; }
+  .muted { color: #777; font-size: 14px; }
+  .small { font-size: 13px; }
+  .link { text-decoration: underline; color: #333; font-size: 14px; }
+  .grid3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
+  .grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .panel { border: 2px solid #444; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .panel.click { cursor: pointer; }
+  .panel h3 { margin: 0; font-size: 17px; display: flex; justify-content: space-between; }
+  .panel h3 .arrow { font-weight: 400; color: #777; }
+  .btn { display: inline-block; padding: 8px 14px; border: 2px solid #222;
+         background: #444; color: #fff; font-weight: 600; text-align: center; font-size: 14px; }
+  .btn.ghost { background: #fff; color: #222; }
+  .meter { height: 10px; border: 1px solid #888; background: #eee; }
+  .meter div { height: 100%; background: #555; }
+  .macro { display: grid; grid-template-columns: 60px 1fr 70px; gap: 8px; align-items: center; font-size: 13px; }
+  .days { display: flex; gap: 6px; }
+  .days div { flex: 1; text-align: center; font-size: 11px; padding: 6px 0; border: 1px solid #888; }
+  .days .done { background: #555; color: #fff; }
+  .days .missed { border: 2px dashed #222; }
+  .days .today { border: 3px solid #222; font-weight: 700; }
+  .chart { height: 90px; border: 1px dashed #999; display: flex; align-items: center;
+           justify-content: center; color: #999; font-size: 13px; }
+  .chart.big { height: 240px; }
+  .event { display: flex; gap: 10px; font-size: 13px; padding: 8px; border: 1px solid #bbb; }
+  .event .tag { font-weight: 700; min-width: 78px; }
+  .event.bad { border-left: 4px dashed #222; }
+  .event.good { border-left: 4px solid #222; }
+  .stat { border: 1px solid #888; padding: 12px; text-align: center; }
+  .stat b { display: block; font-size: 22px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { border: 1px solid #aaa; padding: 8px; text-align: left; }
+  th { background: #eee; }
+  .input { display: inline-block; width: 60px; height: 26px; border: 1px solid #888; background: #fafafa; vertical-align: middle; }
+  .chat { border: 1px solid #888; padding: 10px; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
+  .bubble { border: 1px solid #aaa; padding: 6px 10px; max-width: 85%; }
+  .bubble.me { align-self: flex-end; background: #eee; }
+  .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .note { max-width: 1100px; margin: 8px auto 0; font-size: 13px; color: #555;
+          border-left: 3px solid #999; padding-left: 10px; }
+  .back { font-size: 14px; margin-bottom: 12px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<div class="screen">
+  <h1>FitIT — Dashboard Wireframes</h1>
+  <p class="subtitle">Web app · Low fidelity · The home page after onboarding, plus the full view of each section</p>
+</div>
+
+<!-- 8. Dashboard -->
+<div class="screen">
+  <div class="label">Screen 8 — Dashboard (home)</div>
+  <div class="browser">
+    <div class="bar">fitit.app/dashboard</div>
+    <div class="nav">
+      <span class="logo">FitIT</span>
+      <span class="links"><span class="active">Home</span><span>Workout</span><span>Diet</span><span>Impact</span></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="content">
+      <div class="greet">
+        <h2>Welcome back, [Name]</h2>
+        <p class="muted" style="margin:4px 0 0">Tuesday, Sep 22 · Week 3 of your plan · 🔥 4-day streak</p>
+      </div>
+
+      <div class="grid3">
+        <!-- Workout mini -->
+        <div class="panel click">
+          <h3>Workout / Trainer <span class="arrow">View all →</span></h3>
+          <div><b>Today: Push Day</b><br><span class="muted">5 exercises · ~45 min</span></div>
+          <div class="small">Bench press · Overhead press · Incline DB press · Lateral raises · Triceps dips</div>
+          <div class="days">
+            <div class="done">M</div><div class="today">T</div><div class="missed">W</div>
+            <div>T</div><div>F</div><div>S</div><div>S</div>
+          </div>
+          <span class="btn">Start workout</span>
+        </div>
+
+        <!-- Diet mini -->
+        <div class="panel click">
+          <h3>Diet / Meals <span class="arrow">View all →</span></h3>
+          <div><b>1,450 / 2,300 kcal</b></div>
+          <div class="meter"><div style="width:63%"></div></div>
+          <div class="macro"><span>Protein</span><div class="meter"><div style="width:70%"></div></div><span>112/160 g</span></div>
+          <div class="macro"><span>Carbs</span><div class="meter"><div style="width:55%"></div></div><span>140/250 g</span></div>
+          <div class="macro"><span>Fat</span><div class="meter"><div style="width:60%"></div></div><span>42/70 g</span></div>
+          <div class="small"><b>Next meal:</b> Chicken rice bowl (620 kcal)</div>
+          <span class="btn ghost">Log food</span>
+        </div>
+
+        <!-- Impact mini -->
+        <div class="panel click">
+          <h3>Impact <span class="arrow">View all →</span></h3>
+          <div class="row">
+            <div class="stat" style="flex:1"><b>+0.6 lb</b><span class="small">muscle (est.)</span></div>
+            <div class="stat" style="flex:1"><b>−2.1 lb</b><span class="small">fat (est.)</span></div>
+          </div>
+          <div class="chart">[ mini trend line: planned vs actual ]</div>
+          <div class="event bad"><span class="tag">Skipped</span><span>Wed leg day. Goal date moved back 2 days.</span></div>
+          <div class="event good"><span class="tag">Extra mile</span><span>Sat: +2 sets. Goal date moved up 1 day.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Each card shows a summary only. Clicking anywhere on a card, or its tab in the top nav, opens that section's full view (Screens 9–11). The greeting uses the user's first name from their profile.</p>
+</div>
+
+<!-- 9. Workout full view -->
+<div class="screen">
+  <div class="label">Screen 9 — Workout / Trainer (full view)</div>
+  <div class="browser">
+    <div class="bar">fitit.app/workout</div>
+    <div class="nav">
+      <span class="logo">FitIT</span>
+      <span class="links"><span>Home</span><span class="active">Workout</span><span>Diet</span><span>Impact</span></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="content">
+      <span class="link back">← Back to dashboard</span>
+      <h2 style="margin:0 0 12px">This week's plan</h2>
+      <div class="days" style="margin-bottom:20px">
+        <div class="done">Mon<br>Pull</div><div class="today">Tue<br>Push</div><div class="missed">Wed<br>Legs</div>
+        <div>Thu<br>Rest</div><div>Fri<br>Upper</div><div>Sat<br>Lower</div><div>Sun<br>Rest</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Today: Push Day</h3>
+          <table>
+            <tr><th>Exercise</th><th>Target</th><th>Log (reps × lb)</th></tr>
+            <tr><td>Bench press</td><td>4 × 8</td><td><span class="input"></span> × <span class="input"></span></td></tr>
+            <tr><td>Overhead press</td><td>3 × 10</td><td><span class="input"></span> × <span class="input"></span></td></tr>
+            <tr><td>Incline DB press</td><td>3 × 10</td><td><span class="input"></span> × <span class="input"></span></td></tr>
+            <tr><td>Lateral raises</td><td>3 × 15</td><td><span class="input"></span> × <span class="input"></span></td></tr>
+            <tr><td>Triceps dips</td><td>3 × 12</td><td><span class="input"></span> × <span class="input"></span></td></tr>
+          </table>
+          <div class="row"><span class="btn">Finish workout</span><span class="btn ghost">Skip today</span><span class="btn ghost">Swap exercise</span></div>
+        </div>
+        <div class="panel">
+          <h3>AI Coach</h3>
+          <div class="chat">
+            <div class="bubble">You missed leg day Wednesday. Want me to add it to Saturday?</div>
+            <div class="bubble me">Yes, but keep it under an hour.</div>
+            <div class="bubble">Done. Saturday is now a 55-min lower-body session.</div>
+          </div>
+          <div class="row"><span class="input" style="flex:1;width:auto"></span><span class="btn">Send</span></div>
+          <span class="link">Regenerate my weekly plan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Logging saves to workout_logs and set_logs. "Skip today" and "Finish workout" both send an update to the Impact section.</p>
+</div>
+
+<!-- 10. Diet full view -->
+<div class="screen">
+  <div class="label">Screen 10 — Diet / Meals (full view)</div>
+  <div class="browser">
+    <div class="bar">fitit.app/diet</div>
+    <div class="nav">
+      <span class="logo">FitIT</span>
+      <span class="links"><span>Home</span><span>Workout</span><span class="active">Diet</span><span>Impact</span></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="content">
+      <span class="link back">← Back to dashboard</span>
+      <h2 style="margin:0 0 12px">Today's nutrition</h2>
+      <div class="grid3" style="margin-top:0;margin-bottom:20px">
+        <div class="stat"><b>2,300</b><span class="small">daily kcal target</span></div>
+        <div class="stat"><b>160 / 250 / 70 g</b><span class="small">protein / carbs / fat</span></div>
+        <div class="stat"><b>850</b><span class="small">kcal remaining</span></div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Meal plan</h3>
+          <div class="event good"><span class="tag">Breakfast</span><span>Greek yogurt, oats, berries · 480 kcal · ✓ eaten</span></div>
+          <div class="event good"><span class="tag">Lunch</span><span>Turkey wrap, apple · 550 kcal · ✓ eaten</span></div>
+          <div class="event"><span class="tag">Dinner</span><span>Chicken rice bowl · 620 kcal</span></div>
+          <div class="event"><span class="tag">Snack</span><span>Protein shake, almonds · 350 kcal</span></div>
+          <div class="row"><span class="btn ghost">Swap a meal</span><span class="btn ghost">Regenerate plan</span></div>
+        </div>
+        <div class="panel">
+          <h3>Log food</h3>
+          <div class="row"><span class="input" style="flex:1;width:auto"></span><span class="btn">Add</span></div>
+          <span class="muted small">Type something like "2 eggs and toast" and the AI estimates calories and macros.</span>
+          <h3 style="margin-top:8px">Preferences</h3>
+          <span class="small">Diet: No restrictions · Allergies: None · Meals per day: 4</span>
+          <span class="link">Edit preferences</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 11. Impact full view -->
+<div class="screen">
+  <div class="label">Screen 11 — Impact (full view)</div>
+  <div class="browser">
+    <div class="bar">fitit.app/impact</div>
+    <div class="nav">
+      <span class="logo">FitIT</span>
+      <span class="links"><span>Home</span><span>Workout</span><span>Diet</span><span class="active">Impact</span></span>
+      <span class="avatar"></span>
+    </div>
+    <div class="content">
+      <span class="link back">← Back to dashboard</span>
+      <h2 style="margin:0 0 12px">Your progress</h2>
+      <div class="grid3" style="margin-top:0;margin-bottom:20px">
+        <div class="stat"><b>+0.6 lb</b><span class="small">muscle gained (est.)</span></div>
+        <div class="stat"><b>−2.1 lb</b><span class="small">fat lost (est.)</span></div>
+        <div class="stat"><b>Dec 14</b><span class="small">projected goal date (was Dec 13)</span></div>
+      </div>
+      <div class="panel" style="margin-bottom:16px">
+        <h3>Projection <span class="small muted">1W · 1M · 3M · All</span></h3>
+        <div class="chart big">[ line chart: original plan (dashed) vs actual progress (solid), extended to goal date ]</div>
+      </div>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Timeline</h3>
+          <div class="event good"><span class="tag">Sat 9/19</span><span>Extra mile: +2 sets on lower day. Goal moved up 1 day.</span></div>
+          <div class="event bad"><span class="tag">Wed 9/16</span><span>Skipped leg day. Goal moved back 2 days.</span></div>
+          <div class="event good"><span class="tag">Mon 9/14</span><span>Hit a protein target 5 days in a row.</span></div>
+          <span class="link">Show older</span>
+        </div>
+        <div class="panel">
+          <h3>Consistency</h3>
+          <div class="stat"><b>86%</b><span class="small">workouts completed this month</span></div>
+          <div class="stat"><b>78%</b><span class="small">days on calorie target</span></div>
+          <span class="muted small">Estimates come from the AI and are not medical measurements.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="note">Every skipped or extra workout adds an event to the timeline and recalculates the projection and goal date.</p>
+</div>
+
+</body>
+</html>
