@@ -109,4 +109,5 @@ CREATE TABLE daily_nutritional_summaries (
     CONSTRAINT unique_user_date UNIQUE (user_id, log_date)
 );
 
+
 CREATE INDEX idx_daily_summaries_user_date ON daily_nutritional_summaries (user_id, log_date DESC);
