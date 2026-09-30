@@ -1,8 +1,16 @@
 # 0003. Theming token system
 
-**Status:** Open
-**Affects:** `src/ui/theme/*` (new), every component currently in `src/components/ui/*` and
-`src/features/**/*`
+**Status:** Partially superseded — see note
+**Affects:** every component currently in `src/components/ui/*` and `src/features/**/*`
+
+> **Note:** the codebase has since committed to [NativeWind](0010-nativewind-adoption.md) as the
+> styling system, replacing the hand-rolled `ThemeProvider`/`useTheme()` mechanism this doc
+> originally assumed (§3.3 in `ui-architecture.md`). That changes *where* tokens are defined
+> (`tailwind.config.js` instead of `src/ui/theme/`) and *how* components consume them (`className`
+> instead of `useTheme()`) — it does not change any of the underlying findings below (the raw hex
+> literal leak, the missing error/danger color, the need for contrast validation, the
+> `userInterfaceStyle` blocker). Read this doc for the *problems*; read
+> [0010](0010-nativewind-adoption.md) for the *mechanism* that now solves them.
 
 ## The problem
 
@@ -86,14 +94,14 @@ for every semantic pair actually used as text-on-background — run against each
 `src/ui/theme/themes/`. A new theme that fails it shouldn't merge. (The `dataviz` skill's palette
 validator approach is a reasonable model for this, even though this isn't chart work.)
 
-### 5. Web/native rendering parity
+### 5. Web/native rendering parity — superseded by the NativeWind decision
 
-React Native's `StyleSheet` has no CSS custom-property or media-query equivalent, and
-`react-native-web` converts styles per-render rather than via cascading CSS variables — so a theme
-swap has to happen through a React re-render (Context), not through CSS. This confirms Context
-(`ui-architecture.md` §3.3) is the right mechanism rather than a CSS-variables approach that would
-work on web but not native. Worth stating explicitly: switching themes re-renders the whole tree
-under the provider — an accepted, known cost, not a performance regression to debug later.
+This section originally argued for a hand-rolled Context provider over CSS variables, since RN
+`StyleSheet` has no CSS custom-property equivalent. That's moot now that
+[0010](0010-nativewind-adoption.md) adopts NativeWind: it handles the web/native split itself
+(`className` compiles to RN styles on native, to real CSS on web via its Metro/web integration),
+and its `dark:` variant is the re-render/swap mechanism on both platforms — no separate decision
+needed here. Left in place only so the reasoning that led to 0010 isn't lost.
 
 ## If left unresolved
 

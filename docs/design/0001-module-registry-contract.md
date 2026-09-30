@@ -91,12 +91,15 @@ every build. **Recommendation:** keep it static until there's an actual second b
 a white-label variant) that needs a different module set — don't build the conditional-inclusion
 mechanism speculatively.
 
-### 7. Dashboard card reordering (carried over from `ui-architecture.md` §6)
+### 7. Dashboard card reordering — revised: in scope, not fixed
 
-Is `order` fixed per module registration, or user-customizable (drag-to-reorder)?
-**Recommendation:** fixed for v1. Nothing in this contract blocks adding a per-user order override
-later — it would slot in as another field on `ModuleContext` (question 4) filtered/sorted the same
-way a future server-driven config would (`ui-architecture.md` §5).
+This originally recommended "fixed for v1." That's now superseded — drag-to-reorder priority is a
+confirmed product requirement, not a future nice-to-have. `order` on `UIModule` stays as the
+registration-time **default/initial** position only; the live, user-visible order is separate
+runtime state, merged in at render time, not a field the module itself owns or controls.
+
+See [0008](0008-card-priority-and-drag-reorder.md) for the full design: why a single ordered list
+rather than multi-column priority tiers, the drag library, and where the live order is persisted.
 
 ## Resolved contract (for reference once the above are agreed)
 
@@ -108,7 +111,7 @@ export interface UIModule {
   icon: keyof typeof Ionicons.glyphMap;
   screen: ComponentType;
   DashboardCard?: ComponentType<{ onPress: () => void }>;
-  order: number;                         // required
+  order: number;                         // default/initial position only — see question 7 and 0008
   isEnabled?: (ctx: ModuleContext) => boolean;
 }
 
