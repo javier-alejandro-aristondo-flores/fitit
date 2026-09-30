@@ -205,3 +205,18 @@ pattern in `src/lib/api/http.ts`), so this stays a documented extension point, n
 - **Dashboard card reordering**: should `order` be user-customizable (drag-to-reorder) in v1, or
   fixed by `order` in each module's registration for now? Recommend fixed for v1; the registry
   shape doesn't block adding drag-to-reorder later.
+
+These three are carried forward (with a recommendation) into
+[`docs/design/0001-module-registry-contract.md`](design/0001-module-registry-contract.md) — treat
+that as the current version of this section, not this list.
+
+## 7. Deeper design specs
+
+This document defines the *shape* of the registry and theming API — enough to agree on the
+approach. It's deliberately not detailed enough to implement against directly: several subsystems
+it touches (navigation's interaction with Expo Router's static route scanning, what a theme token
+actually has to cover, who owns a module's data loading, error isolation between modules, whether
+onboarding fits the same pattern, how any of this gets tested) have their own open design questions
+that would otherwise surface mid-implementation instead of now. Those live in
+[`docs/design/`](design/README.md), one file per subsystem, each grounded in specific evidence from
+this codebase rather than restated in the abstract here.
